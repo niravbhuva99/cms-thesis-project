@@ -9,4 +9,3 @@ collections:
     create: true # Allow users to create new files in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template for new files (optional)
     fields:
-      - { label: "Title", name: "title", widget: "string" }
