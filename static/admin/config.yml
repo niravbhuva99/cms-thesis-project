@@ -1,15 +1,16 @@
+local_backend: true
 backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/uploads" # Where images are stored in the repo
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "docs"
-    label: "Docs"
+    label: "Documentation"
     folder: "docs/tutorial-basics"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
