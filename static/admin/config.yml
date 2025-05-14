@@ -9,8 +9,11 @@ public_folder: "/images/uploads"
 collections:
   - name: "docs"
     label: "Documentation"
-    folder: "docs/tutorial-basics"
+    folder: "docs/thesis/"
     create: true
+    extension: "mdx"
+    format: "frontmatter"
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
