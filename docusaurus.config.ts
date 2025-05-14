@@ -76,11 +76,7 @@ const config: Config = {
           position: "left",
           label: "Documentation",
         },
-        {
-          to: "/docs/thesis/thesis-intro", // ✅ your actual intro page
-          label: "Thesis Intro",
-          position: "left",
-        },
+
         {
           href: "https://github.com/niravbhuva99/cms-thesis-project", // ✅ your GitHub
           label: "GitHub",
