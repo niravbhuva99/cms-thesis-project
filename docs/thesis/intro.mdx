@@ -8,7 +8,7 @@ tags: [decapcms, mdx, cms, bachelor-thesis]
 
 ### Project Overview
 
-This thesis focuses on extending the open-source headless CMS, **Decap CMS**, to support **MDX** (Markdown + JSX), while also improving flexibility and usability for modern documentation and content workflows.
+This thesis focuses on extending the open-source headless CMS, [**Decap CMS**](https://decapcms.org/), to support [**MDX** (Markdown + JSX)](https://mdxjs.com/), while also improving flexibility and usability for modern documentation and content workflows.
 
 ### Problem Statement
 
@@ -69,13 +69,23 @@ The thesis follows the **Design Science Research (DSR)** methodology, which focu
 
 ---
 
-## Background: CMS & MDX
+## Background: CMS, MDX & Docusaurus
 
 A **CMS (Content Management System)** lets users create, manage, and publish digital content. Traditional CMSs (e.g., WordPress) are tightly coupled to presentation layers, while headless CMSs like Decap separate content management from display logic.
 
 **MDX** is a format combining Markdown and JSX, allowing developers to embed React components inside Markdown files. This is particularly valuable for technical documentation, where dynamic content is often required.
 
----
+**Docusaurus** is an open-source static site generator built by Meta, designed specifically for creating fast, modern documentation websites. It supports:
+
+📘 Markdown and MDX (Markdown + JSX)
+
+⚛️ Built with React, so you can embed components directly in your content
+
+🌍 Supports versioning, i18n, and custom theming
+
+⚡ Fast build times using Vite or Webpack
+
+## Ideal for product docs, project wikis, knowledge bases, and technical documentation sites.
 
 ## Why Decap CMS?
 
@@ -90,7 +100,7 @@ A **CMS (Content Management System)** lets users create, manage, and publish dig
 
 ## Why Docusaurus?
 
-- The client’s existing documentation platform is built on Docusaurus, making it the natural choice for extending CMS capabilities and ensuring full compatibility with their current static site workflow.
+- The client’s existing documentation platform is built on [Docusaurus](https://docusaurus.io/) , making it the natural choice for extending CMS capabilities and ensuring full compatibility with their current static site workflow.
 
 ## Validation
 
@@ -131,6 +141,9 @@ The full source code for this CMS extension is maintained publicly on GitHub:
 
 This repository represents the core development effort of this thesis.
 By the end of the project, it will contain a fully working prototype of the extended Decap CMS integrated with a Docusaurus site, demonstrating live JSX previews, internal linking, and advanced image handling.
+
+🟢 The project is also deployed on Netlify, so you can directly explore the documentation site:
+👉 [Live Demo on Netlify](https://celebrated-maamoul-edd9d7.netlify.app/)
 
 ## Summary
 
