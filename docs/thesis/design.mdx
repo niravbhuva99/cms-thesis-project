@@ -1,8 +1,18 @@
 # System Design & Architecture
 
-## 1. Design Principles & Architecture Overview
+## 1. Research Question
 
-### 1.1 Design Principles
+### 1.1 Research Question
+
+The central research question is:
+
+**How can Decap CMS be enhanced to support MDX authoring, dynamic internal linking, and decentralized media handling while remaining compatible with static site generators such as Docusaurus?**
+
+---
+
+## 2. Design Principles & Architecture Overview
+
+### 2.1 Design Principles
 
 The system is designed with the following core principles to ensure extensibility, developer-friendliness, and robust content handling:
 
@@ -16,13 +26,13 @@ The system is designed with the following core principles to ensure extensibilit
 | **Output Validation**      | All changes pass automated validation checks to maintain production safety.                              |
 | **Preview Accuracy**       | In-CMS preview mirrors final Docusaurus rendering with fidelity.                                         |
 
-### 1.2 Architecture Overview
+### 2.2 Architecture Overview
 
-#### 1.2.1 High-Level Architecture
+#### 2.2.1 High-Level Architecture
 
 ![Architecture Diagram](./HighLevelArchi.svg)
 
-#### 1.2.2 Technology Stack
+#### 2.2.2 Technology Stack
 
 | Layer       | Technology                     | Purpose                                          |
 | ----------- | ------------------------------ | ------------------------------------------------ |
@@ -35,18 +45,18 @@ The system is designed with the following core principles to ensure extensibilit
 
 ---
 
-## 2. System Requirements
+## 3. System Requirements
 
 The system is driven by the following core requirements:
 
-### Functional Requirements:
+### 3.1 Functional Requirements:
 
 - Author MDX with embedded React components.
 - Resolve internal links based on file tree structure.
 - Upload and reference images in local `assets/` folders.
 - Provide real-time preview of content, links, and images.
 
-### Non-Functional Requirements:
+### 3.2 Non-Functional Requirements:
 
 - Maintain compatibility with Git and Docusaurus builds.
 - Provide editor validation (JSX syntax, broken links, missing assets).
@@ -54,9 +64,9 @@ The system is driven by the following core requirements:
 
 ---
 
-## 3. MDX Integration
+## 4. MDX Integration
 
-### 3.1 Authoring Pipeline
+### 4.1 Authoring Pipeline
 
 ![MDX Pipeline](./MDXProcessingPipeline.svg)
 
@@ -78,15 +88,20 @@ The system is driven by the following core requirements:
 - Syntax errors are highlighted inline.
 - Missing JSX components trigger fallback UIs.
 
-### 3.2 MDX content processing (AST generation, table handling, link extraction)
+### 4.2 MDX Content Processing
 
 ![MDX processing](./mdxprocessing.svg)
 
+- AST generation through unified + remark plugins
+- Table formatting and sanitization for compatibility
+- JSX and custom components are type-checked
+- Internal links are preprocessed into a normalized format
+
 ---
 
-## 4. Internal Linking
+## 5. Internal Linking
 
-### 4.1 Link Resolver
+### 5.1 Link Resolver
 
 **Architecture:**
 
@@ -105,9 +120,9 @@ The system is driven by the following core requirements:
 
 ---
 
-## 5. Image Management
+## 6. Image Management
 
-### 5.1 Decentralized Asset Handling
+### 6.1 Decentralized Asset Handling
 
 **Architecture:**
 
@@ -130,15 +145,15 @@ The system is driven by the following core requirements:
 
 ---
 
-## 6. Use Case Analysis
+## 7. Use Case Analysis
 
-### 6.1 Actors
+### 7.1 Actors
 
 - **Content Authors**: Use CMS to create/edit documentation.
 - **Developers**: Maintain schema, components, and build pipelines.
 - **Maintainers**: Review commits and validate site builds.
 
-### 6.2 Use Cases
+### 7.2 Use Cases
 
 - **Author Interactive Guide**: Embed `<Callout />` or `<CodeTabs />` components in documentation.
 - **Update Folder Structure**: Rename/move folders; links remain valid due to resolver.
@@ -146,7 +161,7 @@ The system is driven by the following core requirements:
 
 ---
 
-## 7. Conclusion
+## 8. Conclusion
 
 This system transforms Decap CMS into a modern documentation platform by adding MDX authoring, folder-aware internal linking, and decentralized media handling. It enhances both developer extensibility and editor usability.
 
