@@ -1,0 +1,18 @@
+/* 
+Search Bar 
+
+Check: https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-theme-classic/
+*/
+
+:root {
+    --aa-primary-color-rgb: 88, 88, 88 !important;
+    --aa-muted-color-rgb: 88, 88, 88 !important;
+}
+
+.aa-DetachedSearchButtonPlaceholder {
+    display: none !important;
+}
+
+.aa-DetachedSearchButton {
+    border: none !important;
+}

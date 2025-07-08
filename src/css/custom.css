@@ -1,30 +1,246 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@import url('searchBar.css');
 
-/* You can override the default Infima variables here. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-color-primary: #0084d3;
+    --ifm-color-primary-dark: #00195a;
+    --ifm-color-primary-darker: #003283;
+    --ifm-color-primary-darkest: #0f46a7;
+    --ifm-color-primary-light: #0076cb;
+    --ifm-color-primary-lighter: #008fd3;
+    --ifm-color-primary-lightest: #0faaff;
+    --ifm-code-font-size: 95%;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+.footer--dark {
+    background-color: #222 !important;
+}
+
+.docusaurus-highlight-code-line {
+    background-color: #4b4b4b;
+    display: block;
+    margin: 0 calc(-1 * var(--ifm-pre-padding));
+    padding: 0 var(--ifm-pre-padding);
+}
+
+.container h1,
+.markdown h1 {
+    @apply mt-8 text-4xl font-extrabold text-left;
+}
+
+.container h2,
+.markdown h2 {
+    @apply text-2xl font-bold text-left mb-1 mt-6 !important;
+}
+
+.container h3,
+.markdown h3 {
+    @apply text-xl font-bold text-left mb-1 mt-4 !important;
+}
+
+.container h4,
+.markdown h4 {
+    @apply text-lg font-bold text-left mb-1 mt-2 !important;
+}
+
+a {
+    @apply text-primary-500;
+}
+div > aside > div > nav > ul > li > a,
+div > aside > div > nav > ul > li > div > a {
+    @apply font-medium !important;
+}
+
+.hero__title {
+    @apply pb-6;
+}
+
+a.menu__link {
+    @apply font-normal;
+}
+
+article img {
+    @apply mx-auto my-4;
+}
+
+article {
+    @apply text-justify text-gray-700;
+}
+
+article ul {
+    @apply my-4 ml-6 list-disc;
+}
+article ol {
+    @apply my-4 ml-6 list-decimal;
+}
+article ol li::marker {
+    @apply font-bold;
+}
+
+article .theme-admonition {
+    @apply mt-8;
+}
+
+article table {
+    @apply mt-6 mb-2 !important;
+}
+
+a,
+p,
+b,
+strong span,
+h1,
+h2,
+h3,
+h4 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+#__docusaurus > div.main-wrapper.docs-wrapper.docs-doc-page > div > aside > div > nav > ul > li > a {
+    @apply font-medium;
+}
+
+main {
+    min-height: calc(100vh - 320px);
+}
+nav.menu {
+    @apply pt-4 pb-12;
+}
+
+ol > li {
+    @apply mb-4;
+}
+
+ul.breadcrumbs {
+    display: none; /* TODO: Remove breadcrumbs from the docusaurus config */
+}
+
+hr {
+    @apply my-6 border-gray-200 border-dashed;
+}
+
+div.admonition {
+    @apply mt-12;
+}
+
+table {
+    @apply w-full my-12 table-fixed;
+}
+
+td,
+th,
+thead,
+tbody {
+    width: 1%; /* Allows to use the fixed table layout */
+    @apply text-left;
+}
+
+blockquote::before {
+    content: '“';
+    @apply absolute text-primary-100 font-clean;
+    font-size: 120px;
+    left: 10px;
+}
+
+blockquote::after {
+    content: '„';
+    @apply absolute text-primary-100 font-clean;
+    font-size: 120px;
+    bottom: 90px;
+    right: 10px;
+}
+
+.primary > p {
+    @apply mb-4 !important;
+}
+
+blockquote {
+    @apply relative px-24 my-16 text-lg text-gray-700 border-none;
+}
+
+blockquote p {
+    @apply pb-8 text-xl font-light tracking-widest;
+}
+
+blockquote em {
+    @apply text-sm font-bold tracking-tight text-primary-500;
+}
+
+aside > div > nav > ul > li > a {
+    @apply font-normal;
+}
+
+ul.table-of-contents::before {
+    content: 'Table of contents';
+    @apply mb-2 ml-2 lg:block font-bold hidden !important;
+}
+
+.theme-doc-markdown {
+    @apply px-4;
+}
+
+li {
+    @apply text-left;
+}
+
+details h2 {
+    @apply mt-8 mb-6;
+}
+
+details h3 {
+    @apply mt-6 mb-4;
+}
+
+details h4 {
+    @apply mt-4 mb-3;
+}
+
+details p {
+    @apply mb-3;
+}
+
+.resource-service-item {
+    @apply text-gray-500 text-sm mt-1 mb-6 text-justify !important;
+}
+
+@media (max-width: 600px) {
+    .iframe-wrapper {
+        width: 100% !important;
+        padding-bottom: 56.25% !important;
+    }
+}
+
+.pagination-nav__link {
+    border: none !important;
+}
+
+.aa-SubmitIcon {
+    fill: #333 !important;
+}
+
+.theme-doc-footer {
+    @apply px-4;
+}
+
+.theme-doc-footer-edit-meta-row * {
+    @apply inline-block;
+}
+
+div .mdxContent {
+    @apply primary 2xl:max-w-5xl xl:max-w-3xl lg:max-w-xl;
+}
+
+div .mdxContent:has(> .fullWidth) {
+    @apply max-w-full;
 }

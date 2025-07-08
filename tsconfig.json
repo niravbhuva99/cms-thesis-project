@@ -1,8 +1,27 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@docusaurus/tsconfig",
-  "compilerOptions": {
-    "baseUrl": "."
-  },
-  "exclude": [".docusaurus", "build"]
+    // This file is not used in compilation. It is here just for a nice editor experience.
+    // "extends": "@tsconfig/docusaurus/tsconfig.json",
+    // "extends": "@docusaurus/tsconfig",
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "jsx": "react",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "noEmitOnError": false,
+        "outDir": "./dist",
+        "paths": {
+            "react": ["./node_modules/@types/react"],
+            "@docusaurus/*": ["./node_modules/@docusaurus"],
+            "@src/*": ["./src/*"]
+            // "@docusaurus/Link": ["./node_modules/@docusaurus/module-type-aliases"]
+        },
+        "lib": ["es2021", "dom"],
+        "noImplicitAny": false,
+        "resolveJsonModule": true
+    },
+    "include": ["./customEditor/src/**/*"]
 }
