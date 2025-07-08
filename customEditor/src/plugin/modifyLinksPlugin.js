@@ -76,9 +76,7 @@ export const processLink = async (node, href) => {
       node.url = prod_URL;
       return;
     }
-    console.log("filename", filename, "anchorPart", anchorPart, "root", root);
     const query = `repo:${repo} filename:${filename} path:${path} extension:mdx`;
-    console.log("query", query);
     try {
       const res =
         filename &&
@@ -90,14 +88,12 @@ export const processLink = async (node, href) => {
         }));
 
       const data = res && (await res.json());
-      console.log("data link", data);
       if (data && data.items && data.items.length > 0) {
         const filePath = data.items[0].path.replace(/\.mdx$/, ""); // remove .mdx extension
 
         node.url = `${prod_URL}${filePath}${
           anchorPart ? "#" + anchorPart : ""
         }`;
-        console.log("modified url", node.url);
         return;
       }
 
