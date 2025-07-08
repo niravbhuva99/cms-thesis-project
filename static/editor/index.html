@@ -1,67 +1,63 @@
 <!doctype html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Content Manager</title>
 
     <style>
-        div[data-slate-editor],
-        div[data-slate-string] {
-            -webkit-user-modify: read-write !important;
-        }
+      div[data-slate-editor],
+      div[data-slate-string] {
+        -webkit-user-modify: read-write !important;
+      }
     </style>
     <style>
-        h1+a {
-            line-height: 22px !important;
-            height: 50px !important;
-        }
+      h1 + a {
+        line-height: 22px !important;
+        height: 50px !important;
+      }
     </style>
 
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <!-- // this is for the code syntax bug -->
-    <script>delete HTMLElement.prototype.onbeforeinput</script>
+    <script>
+      delete HTMLElement.prototype.onbeforeinput;
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <script src="./bundle.js"></script>
     <script>
-        // // Select the target node
-        // const targetNode = document.body;
+      // // Select the target node
+      // const targetNode = document.body;
 
-        // // Options for the observer (which mutations to observe)
-        // const config = { childList: true, subtree: true };
+      // // Options for the observer (which mutations to observe)
+      // const config = { childList: true, subtree: true };
 
-        // // Callback function to execute when mutations are observed
-        // const callback = function (mutationsList, observer) {
-        //     for (const mutation of mutationsList) {
-        //         if (mutation.type === 'childList') {
-        //             const link = document.getElementsByClassName('css-bn4qgs-CollectionTopNewButton-button-default-gray ei8nkzc1');
-        //             if (link.length > 0) {
-        //                 const array = Array.prototype
-        //                     .slice.call(link);
+      // // Callback function to execute when mutations are observed
+      // const callback = function (mutationsList, observer) {
+      //     for (const mutation of mutationsList) {
+      //         if (mutation.type === 'childList') {
+      //             const link = document.getElementsByClassName('css-bn4qgs-CollectionTopNewButton-button-default-gray ei8nkzc1');
+      //             if (link.length > 0) {
+      //                 const array = Array.prototype
+      //                     .slice.call(link);
 
-        //                 array[0].textContent = 'Create File';
-        //                 observer.disconnect();
-        //                 break;
-        //             }
-        //         }
-        //     }
-        // };
+      //                 array[0].textContent = 'Create File';
+      //                 observer.disconnect();
+      //                 break;
+      //             }
+      //         }
+      //     }
+      // };
 
-        // // Create an observer instance linked to the callback function
-        // const observer = new MutationObserver(callback);
+      // // Create an observer instance linked to the callback function
+      // const observer = new MutationObserver(callback);
 
-        // // Start observing the target node for configured mutations
-        // observer.observe(targetNode, config);
-
+      // // Start observing the target node for configured mutations
+      // observer.observe(targetNode, config);
     </script>
-
-</body>
-
+  </body>
 </html>

@@ -29,10 +29,8 @@ const fetchImage = async (img, setSrc) => {
     }
 
     const imageUrl = `${base_URL}docs/${path}/${cleanedImageName}`;
-    console.log(`imageUrl: ${imageUrl}`);
 
     const githubApiUrl = `https://api.github.com/repos/${owner}/${repo}/contents${imageUrl}`;
-    console.log(`githubApiUrl: ${githubApiUrl}`);
 
     const response = await fetch(githubApiUrl, {
       headers: {
@@ -43,7 +41,6 @@ const fetchImage = async (img, setSrc) => {
     });
 
     const data = await response.json();
-    console.log(data, "##data");
     // const base64Data = response.data.content
     const base64Data = data.content;
 
