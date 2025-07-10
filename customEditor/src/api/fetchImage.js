@@ -2,6 +2,10 @@ const owner = "niravbhuva99";
 const repo = "cms-thesis-project";
 const base_URL = "/";
 
+if (!process.env.REACT_APP_GITHUB_TOKEN) {
+  console.warn("⚠️ GitHub token is not defined in env variables!");
+}
+
 const fetchImage = async (img, setSrc) => {
   try {
     const hash = window.location.hash;
