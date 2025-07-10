@@ -10,7 +10,6 @@ const fetchImage = async (img, setSrc) => {
     const docPath = folder;
 
     let cleanedImageName = img.replace(/^\.\//, "");
-    console.log("Token used:", process.env.REACT_APP_GITHUB_TOKEN);
 
     const regex1 = /^(\.\.\/)(?!(\.\.\/))/;
     const regex2 = /^(\.\.\/){2}(?!(\.\.\/))/;
