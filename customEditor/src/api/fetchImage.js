@@ -2,10 +2,7 @@ const owner = "niravbhuva99";
 const repo = "cms-thesis-project";
 const base_URL = "/";
 
-if (!process.env.REACT_APP_GITHUB_TOKEN) {
-  console.warn("⚠️ GitHub token is not defined in env variables!");
-}
-
+const token = process.env.GITHUB_TOKEN;
 const fetchImage = async (img, setSrc) => {
   try {
     const hash = window.location.hash;
@@ -40,7 +37,7 @@ const fetchImage = async (img, setSrc) => {
     const response = await fetch(githubApiUrl, {
       headers: {
         accept: "application/vnd.github.v3+json",
-        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
+        Authorization: `token ${token}`,
       },
       method: "GET",
     });
