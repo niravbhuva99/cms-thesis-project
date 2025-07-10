@@ -10,6 +10,7 @@ const fetchImage = async (img, setSrc) => {
     const docPath = folder;
 
     let cleanedImageName = img.replace(/^\.\//, "");
+    console.log("Token used:", process.env.REACT_APP_GITHUB_TOKEN);
 
     const regex1 = /^(\.\.\/)(?!(\.\.\/))/;
     const regex2 = /^(\.\.\/){2}(?!(\.\.\/))/;
@@ -31,6 +32,7 @@ const fetchImage = async (img, setSrc) => {
     const imageUrl = `${base_URL}docs/${path}/${cleanedImageName}`;
 
     const githubApiUrl = `https://api.github.com/repos/${owner}/${repo}/contents${imageUrl}`;
+    console.log("Fetching image from:", githubApiUrl);
 
     const response = await fetch(githubApiUrl, {
       headers: {

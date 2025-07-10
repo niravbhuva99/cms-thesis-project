@@ -7,7 +7,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "My Site",
   tagline: "Dinosaurs are cool",
-
+  markdown: {
+    mermaid: true,
+  },
   // Set the production url of your site here
   url: "https://your-docusaurus-site.example.com",
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -48,7 +50,7 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
+  themes: ["@docusaurus/theme-live-codeblock", "@docusaurus/theme-mermaid"],
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
