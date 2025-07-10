@@ -35,12 +35,13 @@ const fetchImage = async (img, setSrc) => {
     const githubApiUrl = `https://api.github.com/repos/${owner}/${repo}/contents${imageUrl}`;
     console.log("Fetching image from:", githubApiUrl);
 
-    const response = await fetch(githubApiUrl, {
-      headers: {
-        accept: "application/vnd.github.v3+json",
-        Authorization: `token ${token}`,
-      },
-      method: "GET",
+    const response = await fetch("/.netlify/functions/getImageFromGitHub", {
+      method: "POST",
+      body: JSON.stringify({
+        owner,
+        repo,
+        imageUrl,
+      }),
     });
 
     const data = await response.json();
