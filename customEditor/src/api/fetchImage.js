@@ -37,7 +37,7 @@ const fetchImage = async (img, setSrc) => {
     const response = await fetch(githubApiUrl, {
       headers: {
         accept: "application/vnd.github.v3+json",
-        Authorization: `token ${GITHUB_TOKEN}`,
+        Authorization: `token ${token}`,
       },
       method: "GET",
     });
