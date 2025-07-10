@@ -2,9 +2,7 @@ const owner = "niravbhuva99";
 const repo = "cms-thesis-project";
 const base_URL = "/";
 
-const token =
-  "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";
-console.log("GitHub Token:", token);
+const token = process.env.GITHUB_TOKEN;
 const fetchImage = async (img, setSrc) => {
   try {
     const hash = window.location.hash;
@@ -39,7 +37,7 @@ const fetchImage = async (img, setSrc) => {
     const response = await fetch(githubApiUrl, {
       headers: {
         accept: "application/vnd.github.v3+json",
-        Authorization: `token ${token}`,
+        Authorization: `token ${GITHUB_TOKEN}`,
       },
       method: "GET",
     });
