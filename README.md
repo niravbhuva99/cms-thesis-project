@@ -1,94 +1,129 @@
-
 # 🧠 Decap CMS + Docusaurus Extension (Bachelor Thesis)
 
-This repository contains the bachelor thesis project.
-It extends **Decap CMS** to support **MDX, internal linking**, and **folder-scoped image management**, integrated with a **Docusaurus** static site.
-
+This repository extends **Decap CMS** to support **MDX, internal linking**, and **folder-scoped image management**, integrated with a **Docusaurus v3** static site.
 
 ## 🚀 Getting Started
 
-These instructions will get your local development environment set up to run the project.
+### Prerequisites
 
-### 1. Clone the Repository
+- Node.js v18+
+
+### Installation
 
 ```bash
 git clone https://github.com/niravbhuva99/cms-thesis-project
-cd my-website
-````
-
-### 2. Install Dependencies
-
-```bash
+cd cms-thesis-project
 npm install
 ```
 
-> Uses Docusaurus v3, React, and TypeScript.
-
 ---
 
-## 🏗️ Local Development
+## 🏗️ Development Workflow
+
+### Local Development
 
 ```bash
-npm run start
+# Start Docusaurus dev server
+npm run build
+
+# In separate terminal: Start Decap CMS server
+npx decap-server
+
+# Access CMS at: http://localhost:3000/editor/
 ```
-
-This starts the Docusaurus dev server at `http://localhost:3000`.
-
 
 ---
 
 ## 🛠 Project Structure
 
-```bash
-docs/                 # Thesis content in MDX
-├── thesis/           
-│   └── intro.mdx     # Project overview and motivation
-static/               # Images and other static assets
-src/                  # React components like <FloatingImage />
-docusaurus.config.ts  # Site config (title, navbar, footer, themes)
-sidebars.ts           # Sidebar layout for documentation
 ```
+cms-thesis-project/
+├── customEditor/               # CMS Extension Code
+│   ├── src/
+│   │   ├── editor.tsx          # CMS integration core
+│   │   ├── api/                # Media handling APIs
+│   │   ├── components/         # Custom UI components
+│   │   └── custom-widget/      # CMS editor widgets
+│   └── build/                  # Compiled output
+│
+├── docs/                       # Content directory
+│   ├── thesis/                 # MDX content files
+│   └── technical/
+│
+├── src/                        # Docusaurus components
+│   └── components/             # Custom React components
+│
+├── static/                     # Static assets
+│   └── editor/                 # CMS admin panel
+│
+├── docusaurus.config.ts        # Site config
+└── webpack.config.js           # Build configuration
+```
+
+### Key Directories
+
+1. **customEditor/src**
+
+   - `editor.tsx `: CMS integration core
+   - `modifyLinksPlugin.js`: Processes internal links
+   - `UploadImage.tsx`: Folder-scoped image widget
+   - `ReactComponents.tsx`: MDX component scope
+
+2. **src/components**
+   - Custom Docusaurus components (buttons, layouts, etc)
+3. **static/admin**
+   - `config.yml`: CMS configuration
+   - `bundle.js`: Compiled editor bundle
+4. **webpack.config.js**
+   - Custom Webpack config for compiling editor.tsx into bundle.js, includes TypeScript, MDX, dotenv, and GitHub-compatible polyfills
 
 ---
 
-## 🧪 Build for Production
+### Hosting
 
-To build a static version of the site:
-
-```bash
-npm run build
-```
-
-Output goes to `build/`, ready for GitHub Pages or Vercel/Netlify deployment.
+1. **Netlify**: Automatic CI/CD from GitHub
 
 ---
 
-## 🧰 Technologies Used
+## � Troubleshooting
 
-* [Docusaurus v3](https://docusaurus.io/)
-* [React](https://reactjs.org/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [Decap CMS](https://decapcms.org/)
-* [MDX](https://mdxjs.com/)
-* GitHub CI/CD (manual deployment via push or PR)
+| Issue                  | Solution                                       |
+| ---------------------- | ---------------------------------------------- |
+| CMS not loading        | Verify decap-server is running                 |
+| MDX components missing | Check component scope in `ReactComponents.tsx` |
+| Image upload fails     | Verify GitHub repo permissions                 |
+| Broken internal links  | Run link transformation plugin                 |
+
+---
+
+## 🧰 Tech Stack
+
+- **Framework**: [Docusaurus v3](https://docusaurus.io)
+- **CMS**: [Decap CMS](https://decapcms.org)
+- **Rendering**: [MDX v2](https://mdxjs.com)
+- **Language**: TypeScript
+- **CI/CD**: GitHub Actions
 
 ---
 
 ## 📚 Thesis Scope
 
-This project includes:
-
-* Extending Decap CMS to support `.mdx` files with JSX components
-* Live preview rendering of JSX content
-* Support for folder-scoped media (images)
-* Seamless integration with a Docusaurus static site
-
----
-
-## 🧑‍💻 Author
-
-**Nirav Babubhai Bhuva**
-Bachelor of Computer Science
-Hochschule Merseburg
+1. MDX support in headless CMS
+2. Folder-based media management
+3. internal linking
+4. Docusaurus integration architecture
+5. Custom CMS widget development
 
 ---
+
+## 👨‍💻 Author
+
+**Nirav Bhuva**  
+Computer Science BSc  
+Hochschule Merseburg  
+[GitHub](https://github.com/niravbhuva99) | [LinkedIn](https://linkedin.com/in/niravbhuva)
+
+```
+
+
+```

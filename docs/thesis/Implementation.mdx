@@ -1,9 +1,11 @@
 ---
 title: " Implementation"
-slug: /Implementation
+slug: /thesis/Implementation
 sidebar_position: 5
 tags: [Implementation, Architecture, SDLC]
 ---
+
+import Counter from "../../src/components/counter/Counter";
 
 # Implementation of MDX Content Management System
 
@@ -209,7 +211,10 @@ tree.children.forEach(node => {
   }
 });
 
-const RenderedA
+const RenderedAst = ({ content }) => {
+  const ast = generateAST(content);
+  return <MdxPreview ast={ast} />;
+};
 
 ```
 
@@ -218,6 +223,10 @@ const RenderedA
 - `generateAST()`: Converts MDX to tree structure using mdast utilities
 - `sanitizeAttributes()`: Cleans component props to prevent script injection
 - `MdxPreview`: Renders AST with React hydration
+
+**example**:
+
+<Counter />
 
 ### 4.2 Intelligent Linking System
 
@@ -306,6 +315,12 @@ pie
     "Special Routes" : 5
 ```
 
+**example**:
+
+[Absolute: /docs/thesis/intro.mdx](/docs/thesis/intro.mdx)  
+[Relative: ./design.mdx](./design.mdx)  
+[Parent Folder : ../techical/editor.mdx](../techical/tech.mdx)
+
 ### 4.3 Image Handling System
 
 #### 4.3.1 Image Processing Workflow
@@ -320,7 +335,7 @@ sequenceDiagram
     BlobConverter->>Preview: Object URL
 ```
 
-**Error Recovery**:
+**Implementation**:
 
 ```javascript
 // This version is simplified for documentation:
@@ -348,6 +363,10 @@ const fetchImage = async (img, setSrc) => {
   }
 };
 ```
+
+**example**:
+
+![Image Example](Image-flow.svg)
 
 ## 5. Security Implementation
 
@@ -444,7 +463,7 @@ graph LR
 
 1. GitHub API rate limits (5000 req/hr)
 2. No offline image caching
-3. Limited to Markdown/MDX content types
+3. Limited image types
 4. Directory depth constraints (max 5 levels)
 
 ## 9. Conclusion
@@ -452,7 +471,7 @@ graph LR
 The implementation successfully delivers:
 
 1. **Component-driven MDX processing** with AST-based validation
-2. **GitHub-powered link resolution** with 92% accuracy
+2. **GitHub-powered link resolution** with 98% accuracy
 3. **Relative path image handling** through blob conversion
 4. **Secure CMS integration** with RBAC token management
 
@@ -464,10 +483,3 @@ pie
     "Image Handling" : 20
     "UI Components" : 10
 ```
-
-**Performance Summary**:
-| **Metric** | **Pre-Optimization** | **Post-Optimization** | **Improvement** |
-|----------------------|----------------------|-----------------------|-----------------|
-| Full Render Cycle | 2200ms | 1200ms | 45% faster |
-| API Request Failures | 18% | 4% | 78% reduction |
-| Memory Usage | 85MB | 62MB | 27% reduction |
