@@ -2,7 +2,8 @@ const owner = "niravbhuva99";
 const repo = "cms-thesis-project";
 const base_URL = "/";
 
-const token = process.env.REACT_APP_GITHUB_TOKEN;
+const token =
+  "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";
 console.log("GitHub Token:", token);
 const fetchImage = async (img, setSrc) => {
   try {
