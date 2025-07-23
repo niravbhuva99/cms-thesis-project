@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button, { Props as ButtonProps } from "@src/components/button/button";
+import { Callout } from "@src/components/callout/Callout";
+import { EvCarsChart } from "@src/components/callout/Banner";
 import FloatingImage, {
   Props as FloatingImageProps,
 } from "@src/components/floatingImage/floatingImage";
@@ -14,6 +16,8 @@ const scope = {
   },
   FloatingImage: (props: FloatingImageProps) => <ModifyImage {...props} />,
   Counter: (props: any) => <Counter {...props} />,
+  Callout: (props: any) => <Callout {...props} />,
+  EvCarsChart: (props: any) => <EvCarsChart {...props} />,
 };
 
 export default scope;

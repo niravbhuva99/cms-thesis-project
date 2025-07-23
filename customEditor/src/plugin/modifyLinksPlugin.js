@@ -3,6 +3,7 @@ const path = "docs";
 const prod_URL = "https://celebrated-maamoul-edd9d7.netlify.app/";
 
 const splitArray = (url) => url.split("/").filter((ele) => ele !== "");
+const token = process.env.REACT_APP_GITHUB_TOKEN;
 
 const containsAnchor = (url) => {
   if (url.includes("/")) {
@@ -82,7 +83,7 @@ export const processLink = async (node, href) => {
         filename &&
         (await fetch(`https://api.github.com/search/code?q=${query}`, {
           headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
+            Authorization: `Bearer ${token}`,
             Accept: "application/vnd.github+json",
           },
         }));

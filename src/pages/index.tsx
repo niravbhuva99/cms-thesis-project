@@ -8,6 +8,7 @@ import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
 
+// For debugging purposes, remove in production
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (

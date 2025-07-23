@@ -2,10 +2,8 @@ const owner = "niravbhuva99";
 const repo = "cms-thesis-project";
 const base_URL = "/";
 
-if (!process.env.REACT_APP_GITHUB_TOKEN) {
-  console.warn("⚠️ GitHub token is not defined in env variables!");
-}
-
+const token = process.env.REACT_APP_GITHUB_TOKEN;
+console.log("Token:", token);
 const fetchImage = async (img, setSrc) => {
   try {
     const hash = window.location.hash;
@@ -36,14 +34,16 @@ const fetchImage = async (img, setSrc) => {
 
     const githubApiUrl = `https://api.github.com/repos/${owner}/${repo}/contents${imageUrl}`;
     console.log("Fetching image from:", githubApiUrl);
-
-    const response = await fetch(githubApiUrl, {
-      headers: {
-        accept: "application/vnd.github.v3+json",
-        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-      },
-      method: "GET",
-    });
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${imageUrl}`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/vnd.github.v3+json",
+          Authorization: `Bearer ${token}`, // Use your actual token securely
+        },
+      }
+    );
 
     const data = await response.json();
     // const base64Data = response.data.content

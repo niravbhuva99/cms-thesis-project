@@ -1,7 +1,7 @@
 local_backend: true
 
 backend:
-  name: git-gateway
+  name: github
   repo: niravbhuva99/cms-thesis-project
   branch: main
 
