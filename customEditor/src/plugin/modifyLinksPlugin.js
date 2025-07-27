@@ -3,7 +3,7 @@ const path = "docs";
 const prod_URL = "https://celebrated-maamoul-edd9d7.netlify.app/";
 
 const splitArray = (url) => url.split("/").filter((ele) => ele !== "");
-const token = import.meta.env.VITE_GITHUB_TOKEN;
+const token = process.env.REACT_APP_GITHUB_TOKEN;
 
 const containsAnchor = (url) => {
   if (url.includes("/")) {
