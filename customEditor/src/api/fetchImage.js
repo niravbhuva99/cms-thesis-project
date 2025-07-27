@@ -2,7 +2,7 @@ const owner = "niravbhuva99";
 const repo = "cms-thesis-project";
 const base_URL = "/";
 
-const token = process.env.REACT_APP_GITHUB_TOKEN;
+const token = import.meta.env.VITE_GITHUB_TOKEN;
 console.log("Token:", token);
 const fetchImage = async (img, setSrc) => {
   try {
